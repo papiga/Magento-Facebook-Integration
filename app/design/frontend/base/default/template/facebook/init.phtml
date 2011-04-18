@@ -1,5 +1,12 @@
 <div id="fb-root"></div>
-<script src="<?php echo Mage::getStoreConfig('facebook/graph_api/js_api_url') ?>"></script>
+<script>
+	(function() {
+		var lang = document.createElement('script');
+		lang.src = document.location.protocol + '//connect.facebook.net/<?php echo Mage::getStoreConfig('facebook/graph_api/language') ?>/all.js';
+		//lang.async = true;
+		document.getElementById('fb-root').appendChild(lang);
+	}());
+</script>
 <script>
     // initialize the library and use the php facebook session that should already be initialized at this point.
     FB.init({
